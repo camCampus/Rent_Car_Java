@@ -11,35 +11,35 @@ import java.util.Optional;
 
 @Api("Api pour les opérations sur les véhicules")
 @RestController
-@RequestMapping("/vehicle")
+@RequestMapping("/vehicles")
 public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    @GetMapping("/all")
+    @GetMapping("")
     public Iterable<Vehicle> getAll() {
         return vehicleService.getAllVehicles();
     }
 
-    @GetMapping("/view/{id}")
+    @GetMapping("/{id}")
     public Optional<Vehicle> getOneVehicle(@PathVariable String id)
     {
         return vehicleService.getVehicle(id);
     }
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<String> addVehicle(@RequestBody Vehicle vehicle)
     {
         return vehicleService.addVehicle(vehicle);
     }
 
-    @PutMapping("/update")
+    @PutMapping("")
     public ResponseEntity<String> updateVehicle(@RequestBody Vehicle vehicle)
     {
         return vehicleService.updateVehicle(vehicle);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteVehicle(@PathVariable String id)
     {
         return vehicleService.deleteVehicle(id);
