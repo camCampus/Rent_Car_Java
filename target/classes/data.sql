@@ -5,3 +5,5 @@ INSERT INTO spring_boot.type(id, base_price, kilometer_price, vehicle_type) VALU
 INSERT INTO spring_boot.vehicle(registration, brand, color, kilometer, model, status, tax_horses, type) VALUE ('AA-001-AA', 'RENAULT', 'WHITE', 10000, 'TRAFIC', 'AVAILABLE', 4, 'UTILITY');
 INSERT INTO spring_boot.vehicle(registration, brand, color, kilometer, model, status, tax_horses, type) VALUE ('BB-001-AA', 'VOLKSWAGEN', 'GRAY', 50000, 'TRANSPORTER', 'AVAILABLE', 5, 'UTILITY');
 INSERT INTO spring_boot.vehicle(registration, brand, color, kilometer, model, status, tax_horses, type) VALUE ('CC-001-AA', 'PEUGEOT', 'BLACK', 100000, 'EXPERT', 'UNVAILABLE', 6, 'UTILITY');
+INSERT INTO spring_boot.vehicle(registration, brand, color, kilometer, model, status, tax_horses, type) VALUE ('ZZ-001-AA', 'RENAULT', 'WHITE', 1000, 'CLIO', 'UNVAILABLE', 4, 'CAR');
+INSERT INTO spring_boot.vehicle(registration, brand, color, kilometer, model, status, tax_horses, type) VALUE ('CC-070-AA', 'PEUGEOT', 'BLACK', 35890, 'EXPERT', 'UNVAILABLE', 6, 'UTILITY');

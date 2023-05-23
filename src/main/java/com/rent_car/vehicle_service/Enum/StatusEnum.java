@@ -4,5 +4,5 @@ public enum StatusEnum {
     UNAVAILABLE,
     AVAILABLE,
     REPAIRE,
-    IN_SELECTION
+    PENDING,
 }

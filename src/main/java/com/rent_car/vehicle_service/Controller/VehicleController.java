@@ -45,4 +45,9 @@ public class VehicleController {
         return vehicleService.deleteVehicle(id);
     }
 
+    @PostMapping("/user/selection")
+    public ResponseEntity<String> userSelection(@RequestParam(name = "id") String id)
+    {
+        return vehicleService.userVehicleSelection(id);
+    }
 }

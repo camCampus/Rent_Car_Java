@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.web.client.RestTemplate;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.sql.DataSource;
@@ -25,6 +26,12 @@ public class VehicleServiceApplication {
 		dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
 		return dataSourceInitializer;
 	}
+
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(VehicleServiceApplication.class, args);
 	}
