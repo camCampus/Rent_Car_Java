@@ -4,9 +4,10 @@ import com.rent_car.vehicle_service.Model.Vehicle;
 import com.rent_car.vehicle_service.Service.VehicleService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Api("Api pour les opérations sur les véhicules")
 @RestController
@@ -18,6 +19,30 @@ public class VehicleController {
     @GetMapping("/all")
     public Iterable<Vehicle> getAll() {
         return vehicleService.getAllVehicles();
+    }
+
+    @GetMapping("/view/{id}")
+    public Optional<Vehicle> getOneVehicle(@PathVariable String id)
+    {
+        return vehicleService.getVehicle(id);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<String> addVehicle(@RequestBody Vehicle vehicle)
+    {
+        return vehicleService.addVehicle(vehicle);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<String> updateVehicle(@RequestBody Vehicle vehicle)
+    {
+        return vehicleService.updateVehicle(vehicle);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteVehicle(@PathVariable String id)
+    {
+        return vehicleService.deleteVehicle(id);
     }
 
 }

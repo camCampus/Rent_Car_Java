@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface VehicleService {
     Iterable<Vehicle> getAllVehicles();
     Optional<Vehicle> getVehicle(String registration);
-    ResponseEntity<Vehicle> addVehicle(Vehicle vehicle);
-    ResponseEntity<Vehicle> updateVehicle(Vehicle vehicle);
-    ResponseEntity<Vehicle> deleteVehicle(Vehicle vehicle);
+    ResponseEntity<String> addVehicle(Vehicle vehicle);
+    ResponseEntity<String> updateVehicle(Vehicle vehicle);
+    ResponseEntity<String> deleteVehicle(String registration);
 
 
 }

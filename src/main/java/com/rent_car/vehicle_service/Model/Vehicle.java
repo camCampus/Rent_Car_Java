@@ -4,19 +4,22 @@ import com.rent_car.vehicle_service.Enum.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Vehicle {
 
     @Id
     private String registration;
-    private Enum<TypeEnum> type;
-    private Enum<BrandEnum> brand;
-    private Enum<VehicleModelEnum> model;
-    private Enum<StatusEnum> status;
+
+    private String type;
+    private String brand;
+    private String model;
+    private String status;
     private int kilometer;
     private int taxHorses;
-    private Enum<ColorEnum> color;
+    private String color;
 
 
     public Vehicle(String registration) {
@@ -35,35 +38,35 @@ public class Vehicle {
         this.registration = registration;
     }
 
-    public Enum<TypeEnum> getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Enum<TypeEnum> type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public Enum<BrandEnum> getBrand() {
+    public String getBrand() {
         return brand;
     }
 
-    public void setBrand(Enum<BrandEnum> brand) {
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 
-    public Enum<VehicleModelEnum> getModel() {
+    public String getModel() {
         return model;
     }
 
-    public void setModel(Enum<VehicleModelEnum> model) {
+    public void setModel(String model) {
         this.model = model;
     }
 
-    public Enum<StatusEnum> getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Enum<StatusEnum> status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -83,11 +86,11 @@ public class Vehicle {
         this.taxHorses = taxHorses;
     }
 
-    public Enum<ColorEnum> getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Enum<ColorEnum> color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
