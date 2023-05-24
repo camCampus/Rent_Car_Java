@@ -1,11 +1,7 @@
 package com.rent_car.vehicle_service.Model;
 
-import com.rent_car.vehicle_service.Enum.*;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Vehicle {
@@ -16,7 +12,7 @@ public class Vehicle {
     private String type;
     private String brand;
     private String model;
-    private String status;
+    private Boolean rentStatus;
     private int kilometer;
     private int taxHorses;
     private String color;
@@ -62,12 +58,12 @@ public class Vehicle {
         this.model = model;
     }
 
-    public String getStatus() {
-        return status;
+    public Boolean getRentStatus() {
+        return rentStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRentStatus(Boolean rentStatus) {
+        this.rentStatus = rentStatus;
     }
 
     public int getKilometer() {
@@ -101,7 +97,7 @@ public class Vehicle {
                 ", type=" + type + '\'' +
                 ", brand=" + brand +
                 ", model=" + model +
-                ", status=" + status +
+                ", status=" + rentStatus +
                 ", kilometer=" + kilometer +
                 ", taxHorses" + taxHorses +
                 ", color=" + color +

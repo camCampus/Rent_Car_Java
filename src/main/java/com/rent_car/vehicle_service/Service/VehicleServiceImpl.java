@@ -1,6 +1,5 @@
 package com.rent_car.vehicle_service.Service;
 
-import com.rent_car.vehicle_service.Enum.StatusEnum;
 import com.rent_car.vehicle_service.Model.Vehicle;
 import com.rent_car.vehicle_service.Repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,19 +61,6 @@ public class VehicleServiceImpl implements VehicleService {
         }
         vehicleRepository.delete(existingVehicle);
         return ResponseEntity.status(HttpStatus.OK).body("Record delete Successfully");
-    }
-
-    @Override
-    public ResponseEntity<String> userVehicleSelection(String id)
-    {
-        Vehicle vehicle = vehicleRepository.findById(id).orElse(null);
-        if (vehicle != null)
-        {
-            vehicle.setStatus(String.valueOf(StatusEnum.PENDING));
-            vehicleRepository.save(vehicle);
-            return ResponseEntity.status(HttpStatus.OK).body("Vehicle is now pending");
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ooops vehicle not found");
     }
 
 }
