@@ -17,20 +17,17 @@ public class VehicleServiceImpl implements VehicleService {
     private VehicleRepository vehicleRepository;
 
     @Override
-    public Iterable<Vehicle> getAllVehicles()
-    {
+    public Iterable<Vehicle> getAllVehicles() {
         return vehicleRepository.findAll();
     }
 
     @Override
-    public Optional<Vehicle> getVehicle(String registration)
-    {
+    public Optional<Vehicle> getVehicle(String registration) {
         return vehicleRepository.findById(registration);
     }
 
     @Override
-    public ResponseEntity<String> addVehicle(Vehicle vehicle)
-    {
+    public ResponseEntity<String> addVehicle(Vehicle vehicle) {
         Vehicle existingVehicle = vehicleRepository.findById(
                 vehicle.getRegistration()).orElse(null);
         if (existingVehicle == null) {
@@ -41,23 +38,30 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public ResponseEntity<String> updateVehicle(Vehicle vehicle)
-    {
-        Vehicle existingVehicle = vehicleRepository.findById(vehicle.getRegistration()).orElse(null);
-        if (existingVehicle == null)
-        {
+    public ResponseEntity<String> updateVehicle(String registration, Vehicle vehicle) {
+        Vehicle existingVehicle = vehicleRepository.findById(registration)
+                .map(v ->
+                {
+                    v.setBrand(vehicle.getBrand());
+                    v.setColor(vehicle.getColor());
+                    v.setKilometer(vehicle.getKilometer());
+                    v.setModel(vehicle.getModel());
+                    v.setRentStatus(vehicle.getRentStatus());
+                    v.setTaxHorses(vehicle.getTaxHorses());
+                    v.setType(vehicle.getType());
+                    return vehicleRepository.save(v);
+                }).orElse(null);
+
+        if (existingVehicle == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vehicle not found");
         }
-        vehicleRepository.save(vehicle);
         return ResponseEntity.status(HttpStatus.OK).body("Record updated Successfully");
     }
 
     @Override
-    public ResponseEntity<String> deleteVehicle(String registration)
-    {
+    public ResponseEntity<String> deleteVehicle(String registration) {
         Vehicle existingVehicle = vehicleRepository.findById(registration).orElse(null);
-        if (existingVehicle == null)
-        {
+        if (existingVehicle == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vehicle not found");
         }
         vehicleRepository.delete(existingVehicle);

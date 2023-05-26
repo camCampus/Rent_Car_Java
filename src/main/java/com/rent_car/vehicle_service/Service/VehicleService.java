@@ -10,7 +10,7 @@ public interface VehicleService {
     Iterable<Vehicle> getAllVehicles();
     Optional<Vehicle> getVehicle(String registration);
     ResponseEntity<String> addVehicle(Vehicle vehicle);
-    ResponseEntity<String> updateVehicle(Vehicle vehicle);
+    ResponseEntity<String> updateVehicle(String registration, Vehicle vehicle);
     ResponseEntity<String> deleteVehicle(String registration);
     List<Vehicle>vehicleNotInResa(List<String> vehicleList);
 

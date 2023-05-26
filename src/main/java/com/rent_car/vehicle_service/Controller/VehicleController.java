@@ -34,10 +34,10 @@ public class VehicleController {
         return vehicleService.addVehicle(vehicle);
     }
 
-    @PutMapping("")
-    public ResponseEntity<String> updateVehicle(@RequestBody Vehicle vehicle)
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateVehicle(@PathVariable String id, @RequestBody Vehicle vehicle)
     {
-        return vehicleService.updateVehicle(vehicle);
+        return vehicleService.updateVehicle(id, vehicle);
     }
 
     @DeleteMapping("/{id}")
