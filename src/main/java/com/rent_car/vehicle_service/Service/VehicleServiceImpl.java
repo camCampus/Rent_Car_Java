@@ -69,5 +69,4 @@ public class VehicleServiceImpl implements VehicleService {
         return vehicleRepository.getVehicleNotInResa(vehicleList);
     }
 
-
 }

@@ -51,4 +51,5 @@ public class VehicleController {
     {
         return vehicleService.vehicleNotInResa(vehicleList);
     }
+
 }

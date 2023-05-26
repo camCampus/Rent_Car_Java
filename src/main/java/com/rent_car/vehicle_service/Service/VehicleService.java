@@ -13,4 +13,5 @@ public interface VehicleService {
     ResponseEntity<String> updateVehicle(Vehicle vehicle);
     ResponseEntity<String> deleteVehicle(String registration);
     List<Vehicle>vehicleNotInResa(List<String> vehicleList);
+
 }
